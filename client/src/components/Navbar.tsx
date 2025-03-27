@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const menuItems = [
     {
-      title: "Gender",
+      title: "Genders",
     },
     {
       title: "Users",
@@ -30,10 +30,10 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              {menuItems.map((menuItems, index) => (
+              {menuItems.map((menuItem, index) => (
                 <li className="nav-item" key={index}>
-                  <Link className="nav-link " to={"#"}>
-                    {menuItems.title}
+                  <Link className="nav-link" to={"#"}>
+                    {menuItem.title}
                   </Link>
                 </li>
               ))}
