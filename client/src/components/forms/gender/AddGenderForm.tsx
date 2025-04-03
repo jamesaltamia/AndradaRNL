@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import GenderService from "../../services/GenderService";
-import ErrorHandler from "../../handler/ErrorHandler";
-import GenderFieldErrors from "../../interfaces/GenderFieldErrors";
-import SpinnerSmall from "../SpinnerSmall";
+import GenderService from "../../../services/GenderService";
+import ErrorHandler from "../../../handler/ErrorHandler";
+import GenderFieldErrors from "../../../interfaces/GenderFieldErrors";
+import SpinnerSmall from "../../SpinnerSmall";
 
 interface AddGenderFormProps {
   onGenderAdded: (message: string) => void;
@@ -87,19 +87,19 @@ const AddGenderForm = ({ onGenderAdded }: AddGenderFormProps) => {
             )}
           </div>
           <div className="d-flex justify-content-end">
-            <button 
-              type="submit" 
-              className="btn btn-primary" 
+            <button
+              type="submit"
+              className="btn btn-primary"
               disabled={state.loadingStore}
             >
               {state.loadingStore ? (
                 <>
-                <SpinnerSmall /> Loading...
+                  <SpinnerSmall /> Loading...
                 </>
               ) : (
                 "Save"
               )}
-              </button>
+            </button>
           </div>
         </div>
       </form>
