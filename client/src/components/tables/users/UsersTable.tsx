@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import UserService from "../../../services/UserService";
-import Users from "../../../interfaces/Users";
+import { Users } from "../../../interfaces/Users";
 import ErrorHandler from "../../../handler/ErrorHandler";
 import Spinner from "../../Spinner";
 
-interface UsersTableStateProps {
+interface UsersTableProps {
   refreshUsers: boolean;
+  onEditUser: (user: Users) => void;
 }
 
-const UsersTable = ({ refreshUsers }: UsersTableStateProps) => {
+const UsersTable = ({ refreshUsers, onEditUser }: UsersTableProps) => {
   const [state, setState] = useState({
     loadingUsers: true,
     users: [] as Users[],
@@ -97,7 +98,11 @@ const UsersTable = ({ refreshUsers }: UsersTableStateProps) => {
                 <td>{user.email}</td>
                 <td>
                   <div className="btn-group">
-                    <button type="button" className="btn btn-success">
+                    <button
+                      type="button"
+                      className="btn btn-success"
+                      onClick={() => onEditUser(user)}
+                    >
                       Edit
                     </button>
                     <button type="button" className="btn btn-danger">
