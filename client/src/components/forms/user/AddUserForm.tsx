@@ -24,7 +24,6 @@ const AddUserForm = ({
 }: AddUserFormProps) => {
   const [state, setState] = useState({
     loadingGenders: true,
-    loadingStore: false,
     genders: [] as Genders[],
     first_name: "",
     middle_name: "",
@@ -40,7 +39,7 @@ const AddUserForm = ({
     errors: {} as UserFieldErrors,
   });
 
-  const handleResetNecessaryField = () => {
+  const handleResetNecessaryFields = () => {
     setState((prevState) => ({
       ...prevState,
       first_name: "",
@@ -91,8 +90,6 @@ const AddUserForm = ({
           ...prevState,
           loadingGenders: false,
         }));
-
-        setLoadingStore(state.loadingStore);
       });
   };
 
@@ -104,7 +101,7 @@ const AddUserForm = ({
     UserService.storeUser(state)
       .then((res) => {
         if (res.status === 200) {
-          handleResetNecessaryField();
+          handleResetNecessaryFields();
           onUserAdded(res.data.message);
         } else {
           console.error(
@@ -182,7 +179,7 @@ const AddUserForm = ({
               )}
             </div>
             <div className="mb-3">
-              <label htmlFor="last_name">Last_name</label>
+              <label htmlFor="last_name">Last Name</label>
               <input
                 type="text"
                 className={`form-control ${
@@ -198,7 +195,7 @@ const AddUserForm = ({
               )}
             </div>
             <div className="mb-3">
-              <label htmlFor="suffix_name">Suffix_name</label>
+              <label htmlFor="suffix_name">Suffix Name</label>
               <input
                 type="text"
                 className={`form-control ${

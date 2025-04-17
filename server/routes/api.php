@@ -19,6 +19,7 @@ Route::controller(UserController::class)->group(function () {
     Route::put('/updateUser/{user}', 'updateUser');
     Route::put('/destroyUser/{user}', 'destroyUser');
 });
+
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
 // })->middleware('auth:sanctum');

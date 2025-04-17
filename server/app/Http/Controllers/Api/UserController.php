@@ -9,7 +9,6 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-
     public function loadUsers()
     {
         $users = User::with(['gender'])
@@ -29,20 +28,11 @@ class UserController extends Controller
             'last_name' => ['required'],
             'suffix_name' => ['nullable'],
             'birth_date' => ['required', 'date'],
-            'gender' => ['required',],
+            'gender' => ['required'],
             'address' => ['required'],
             'contact_number' => ['required'],
-            'email' => [
-                'required',
-                'email',
-                Rule::unique('tbl_users', 'email')
-            ],
-            'password' => [
-                'required',
-                'confirmed',
-                'min:8',
-                'max:15'
-            ],
+            'email' => ['required', 'email', Rule::unique('tbl_users', 'email')],
+            'password' => ['required', 'confirmed', 'min:8', 'max:15'],
             'password_confirmation' => ['required', 'min:8', 'max:15'],
         ]);
 
@@ -60,7 +50,6 @@ class UserController extends Controller
             'contact_number' => $validated['contact_number'],
             'email' => $validated['email'],
             'password' => bcrypt($validated['password'])
-
         ]);
 
         return response()->json([
@@ -76,14 +65,10 @@ class UserController extends Controller
             'last_name' => ['required'],
             'suffix_name' => ['nullable'],
             'birth_date' => ['required', 'date'],
-            'gender' => ['required',],
+            'gender' => ['required'],
             'address' => ['required'],
             'contact_number' => ['required'],
-            'email' => [
-                'required',
-                'email',
-                Rule::unique('tbl_users', 'email')->ignore($user)
-            ],
+            'email' => ['required', 'email', Rule::unique('tbl_users', 'email')->ignore($user)],
         ]);
 
         $age = date_diff(date_create($validated['birth_date']), date_create('now'))->y;

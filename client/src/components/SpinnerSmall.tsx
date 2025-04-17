@@ -1,4 +1,3 @@
-
 const SpinnerSmall = () => {
   return (
     <>

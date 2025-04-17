@@ -52,7 +52,7 @@ class GenderController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'Gender Succesfully Updated.'
+            'message' => 'Gender Successfully Updated.'
         ], 200);
     }
 

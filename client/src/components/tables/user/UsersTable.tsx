@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import UserService from "../../../services/UserService";
 import { Users } from "../../../interfaces/Users";
+import UserService from "../../../services/UserService";
 import ErrorHandler from "../../../handler/ErrorHandler";
 import Spinner from "../../Spinner";
 
@@ -21,7 +21,7 @@ const UsersTable = ({
   });
 
   const handleLoadUsers = () => {
-    UserService.loadUser()
+    UserService.loadUsers()
       .then((res) => {
         if (res.status === 200) {
           setState((prevState) => ({
@@ -70,7 +70,7 @@ const UsersTable = ({
 
   return (
     <>
-      <table className="table table-havor">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>No.</th>
@@ -78,7 +78,7 @@ const UsersTable = ({
             <th>Gender</th>
             <th>Birthdate</th>
             <th>Address</th>
-            <th>Contact No.</th>
+            <th>Contact Number</th>
             <th>Email</th>
             <th>Action</th>
           </tr>
@@ -87,8 +87,7 @@ const UsersTable = ({
           {state.loadingUsers ? (
             <tr className="align-middle">
               <td colSpan={8} className="text-center">
-                {" "}
-                <Spinner />{" "}
+                <Spinner />
               </td>
             </tr>
           ) : state.users.length > 0 ? (
