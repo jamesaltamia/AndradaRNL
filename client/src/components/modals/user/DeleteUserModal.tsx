@@ -63,7 +63,7 @@ const DeleteUserModal = ({
                   onClose={handleCloseAlertMessage}
                 />
               </div>
-              <p className="fs-4">
+              <p className="fs-4 bg-danger text-white text-center p-2 rounded">
                 Are you sure do you want to delete this user?
               </p>
               <DeleteUserForm
@@ -77,7 +77,7 @@ const DeleteUserModal = ({
                 }}
               />
             </div>
-            <div className="modal-footer">
+            <div className="modal-footer d-flex justify-content-between">
               <button
                 type="button"
                 className="btn btn-secondary"

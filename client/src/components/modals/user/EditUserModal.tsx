@@ -52,7 +52,7 @@ const EditUserModal = ({
         <div className="modal-dialog modal-lg" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5">Edit User</h1>
+              <h1 className="modal-title fs-5">Edit User Form</h1>
             </div>
             <div className="modal-body">
               <div className="mb-3">
@@ -74,7 +74,7 @@ const EditUserModal = ({
                 }}
               />
             </div>
-            <div className="modal-footer">
+            <div className="modal-footer d-flex justify-content-between">
               <button
                 type="button"
                 className="btn btn-secondary"
